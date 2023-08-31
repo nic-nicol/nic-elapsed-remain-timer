@@ -1,6 +1,6 @@
 # nic-elapsed-remain-timer
 
-**HASS timer: **   
+**HOME ASSISTANT TIMER**   
 **enter start date on calendar**  
 **set runtime in weeks** 
 
