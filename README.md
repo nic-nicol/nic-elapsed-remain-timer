@@ -1,7 +1,7 @@
 # nic-elapsed-remain-timer
-HASS timer: enter start date, set runtime in weeks. Sensors output: elapsed time, % of total time, remaining time in weeks &amp; days. 
+HASS timer: enter start date, set runtime in weeks. Sensors will output: elapsed time, % of total time, remaining time in weeks &amp; days. 
 
-Suitable for school/uni term, project management, grow room
+Use case: school/uni term, project management, grow room, etc
 
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/ed4e0f50-be5f-4245-bae1-a8297161bed6)
 
@@ -9,18 +9,23 @@ First up, you require 2 helpers for inputing start date and runtime:
 Go to settings > devices & services > helpers > create helper
 
 Choose 'Date and/or time' and select 'date only'
+
 Name it 'demo.set.start.date' (or name it Fred, or anything you like, just substitute it in the code later on)
 
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/7dcc7747-635e-4f11-9e36-fee8c3d64331)
 
 Create another: choose 'number' and name it 'demo.set.runtime' 
+
 Set the 'step size' as 1, input field (I'm sure it'll work with slider if you prefer) and 'unit of measurement' to week
     
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/0ca3184a-cd70-4548-a3e8-08a5d57bd80d)
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/20f3029f-dce7-4390-8724-dcfe22ba972c)
 
+
 Next up is adding this code to your config.yaml, or wherever makes you happy (such as an !include file to keep your config tidy)
-However, I'd suggest testing it first in Dev tools (see below) 
+
+However, I'd suggest testing it in Dev tools first (see below) 
+
 
 ```
           - platform: template
@@ -68,13 +73,18 @@ However, I'd suggest testing it first in Dev tools (see below)
 ```
 
 To test it, go to 'dev tools' > 'template'
-In the left hand test window, select all and replace with the code above.
-you should now see the results displayed on the right hand window.
+
+In the left hand test window, select all the demo code and replace with the code above.
+
+You should now see the results displayed on the right hand window.
 
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/74dc3c0f-6c43-4afe-8750-f84de20735c5)
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/42065df8-6ed5-4378-98ef-6e69b78dbe8e)
 
-Now, Im not 100% sure what your test results will look like just now. You can see mine show the friendly name of each of the 3 sensors and their values, but you haven't inputted a start date or runtime yet, so don't panic just yet. Go back to your two helpers and imput a date and runtime there and you should see a result now.
+
+Now, Im not 100% sure what your test results will look like just now. You can see mine show the friendly name of each of the 3 sensors and their values, but you haven't inputted a start date or runtime yet, so don't panic! (yet!)
+
+Go back to your two helpers and imput a date and runtime and back in Dev tools you should see a result now.
 
 the three friendly names are:
 "demo Time Elapsed 01"
@@ -83,13 +93,16 @@ the three friendly names are:
 
 Last up, you want to create a nice frontend. 
 
-I'm not great at frontend - I'm not actually any good at coding either! I wrote this with the help of ChatGPT (about two hours of failures I might add!!) and my new pal Neil Englefield from the FaceBook community (thanks a million dude!) who showed me how to integrate the helper inputs: the first itteration of this involved going right into the yaml to set the peramiters. 
+I'm not great at frontend - I'm not actually any good at coding either! I wrote this with the help of ChatGPT (but with hours of failures I might add!!) and my new pal Neil Englefield from the FaceBook community (thanks a million dude!) who showed me how to integrate the helper inputs: the first itteration of this involved going right into the yaml to set the peramiters every time.
 
 So, here's a few custon cards I've made, you can pop them into whatever dash works for you.
-You'll need HACS and 'custom button card' installed - there's hundreds of guides out there how to instal those. You also need mushroom cards installed (you want them anyway, they're the best cards going1) 
-Alternatively, you can use the friendly names in a standard lovelace entities card and use buttons to lauch the helpers
 
-Click add card, select 'custom button card', select all and paste this into the card config:
+But really, from here you can use whatever cards suit your style.
+
+You'll need HACS and 'custom button card' installed - there's hundreds of guides out there how to instal those. You also need mushroom cards installed (you should get them anyway, they're the best cards going!) 
+
+
+Click add card, select 'custom button card', select all and paste this into the card config (overwritting what's there):
 
 ELAPSED:
 
@@ -110,7 +123,9 @@ styles:
     - color: white
     - theme: slate
 ```
+
 REMAINING:
+
 ```type: custom:button-card
 entity: sensor.time_remaining
 name: remaining
@@ -142,6 +157,7 @@ severity:
 ```
 
 SET START DATE (clicking this will open the helper dialogue where you can set a date on a calendar)
+
 For these two you need 'custom mushroom entity' card, but if you don't have mushroom, then a plain old button card will do: just set the entity to 'input_datetime.demo_set_start_date'
 
 
@@ -190,19 +206,25 @@ type: custom:mushroom-entity-card
 LIMITATIONS:
 
 You can only set whole weeks.
+
 I did try adding a 'days helper', but got an error and didn't continue, because, to be honest, this is all I need for my use case.
 I dunno if using a helper with the 'step' set to 0.1 instead of 1 might give you that functionality?
+
 Anyone is welcome to adapt and improve.
 
 FUTURE DEVELOPMENT:
 
 I'm unlikely to do much more in the short term, I've got what I need, but if I do:
 add a 'days helper'
-add an automation/script to copy the start and run times into local calendar, creating an event 
-roll it all into one automation blueprint?
+
+Add an automation/script to copy the start and run times into local calendar, creating an event
+
+Roll it all into one automation blueprint?
 
 I hope this works for you, appologies if it doesn't, this is literally my first post on github and I only learned how to do this yesterday!
-Comments are most welcome, i'd love to hear it's helped someone out...
+
+Comments are most welcome, I'd love to hear it's helped someone out...
+
 Cheers
 Nic 
 '
