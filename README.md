@@ -12,7 +12,8 @@ Sensors will output:
 
 **Use case: school/uni term, project management, grow room, etc**
 
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/ed4e0f50-be5f-4245-bae1-a8297161bed6)
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/63b1a3f4-84e1-4186-ad92-e84f5ad850b0)
+
 
 First up, you require 2 helpers for inputing start date and runtime:  
 Go to settings > devices & services > helpers > create helper
@@ -21,14 +22,17 @@ Choose 'Date and/or time' and select 'date only'
 
 Name it 'demo.set.start.date' (or name it Fred, or anything you like, just substitute it in the code later on)
 
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/7dcc7747-635e-4f11-9e36-fee8c3d64331)
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/4274ae6b-c2b0-4daf-a464-655540ee2116)
+
 
 Create another: choose 'number' and name it 'demo.set.runtime' 
 
 Set the 'step size' as 1, input field (I'm sure it'll work with slider if you prefer) and 'unit of measurement' to week
     
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/0ca3184a-cd70-4548-a3e8-08a5d57bd80d)
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/20f3029f-dce7-4390-8724-dcfe22ba972c)
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/88c9b172-77e1-4b67-bbe1-aa3ae96b65bb)
+
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/d5f5d464-fd72-40e2-a82f-ec5fc72ec195)
+
 
 
 Next up is adding this code to your config.yaml, or wherever makes you happy (such as an !include file to keep your config tidy)
@@ -87,8 +91,11 @@ In the left hand test window, select all the demo code and replace with the code
 
 You should now see the results displayed on the right hand window.
 
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/74dc3c0f-6c43-4afe-8750-f84de20735c5)
-![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/42065df8-6ed5-4378-98ef-6e69b78dbe8e)
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/822ccb7b-0d19-483c-96d9-dca2934dc367)
+
+![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/52860eeb-145a-4a4b-b960-51b3929180c7)
+
+
 
 
 Now, Im not 100% sure what your test results will look like just now. You can see mine show the friendly name of each of the 3 sensors and their values, but you haven't inputted a start date or runtime yet, so don't panic! (yet!)
