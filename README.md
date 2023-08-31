@@ -1,7 +1,16 @@
 # nic-elapsed-remain-timer
-HASS timer: enter start date, set runtime in weeks. Sensors will output: elapsed time, % of total time, remaining time in weeks &amp; days. 
 
-Use case: school/uni term, project management, grow room, etc
+**HASS timer: **   
+**enter start date on calendar**  
+**set runtime in weeks** 
+
+Sensors will output:  
+**elapsed time**  
+**% of total time**   
+**remaining time in weeks and days**   
+
+
+**Use case: school/uni term, project management, grow room, etc**
 
 ![image](https://github.com/nic-nicol/nic-elapsed-remain-timer/assets/98160640/ed4e0f50-be5f-4245-bae1-a8297161bed6)
 
@@ -158,7 +167,7 @@ severity:
 
 SET START DATE (clicking this will open the helper dialogue where you can set a date on a calendar)
 
-For these two you need 'custom mushroom entity' card, but if you don't have mushroom, then a plain old button card will do: just set the entity to 'input_datetime.demo_set_start_date'
+For these two you need 'custom mushroom entity' card, but if you don't have mushroom, then a plain old button card will do: just set the entity to 'input_datetime.demo_set_start_date' (or Fred, if that's what you called it)
 
 
 ```type: custom:mushroom-entity-card
